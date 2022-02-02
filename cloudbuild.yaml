@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--tag=gcr.io/$PROJECT_ID/restapi-service:$TAG_NAME', '.']
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['run', 'gcr.io/$PROJECT_ID/restapi-service:$TAG_NAME', 'go', 'test']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', 'sleep 20']
+#- name: 'gcr.io/cloud-builders/docker'
+#  args: ['push', 'gcr.io/cloud-builders/docker']
+images: ['gcr.io/$PROJECT_ID/restapi-service:$TAG_NAME']
+ 
